@@ -11,7 +11,7 @@ from .apis import get_droplets
 
 class GetDroplets(TemplateView):
 
-    template_name = 'upload.html'
+    template_name = 'platform.html'
 
     def get_context_data(request, *args, **kwargs):  
             # if request.method == 'GET':
@@ -34,26 +34,24 @@ class GetDroplets(TemplateView):
 
 
 
-class GetDroplets(TemplateView):
+# class Getsearch(request):
 
-    template_name = 'upload.html'
+#     template_name = 'upload.html'
 
-    def get_context(request, *args, **kwargs):  
-            # if request.method == 'GET':
-        params='/platforms'
-        data=get_droplets(params)
-        array_length = len(data)
-        droplet_list = []
-
-        for i in range(array_length):
-            droplet_list.append(data[i])
-
-        context = {
-            'droplets' : droplet_list,
-        }
+def getsearch(request, *args, **kwargs):  
+        # if request.method == 'GET':
+    params='/search'
+    data=get_droplets(params)
+    array_length = len(data)
+    droplet_list = []
+    for i in range(array_length):
+        droplet_list.append(data[i])
+    
             
     
-        return context
+    return render(request,"search.html",context = {
+        'droplets' : droplet_list,
+    })
 
 
 # from .apis import datamine

@@ -1,38 +1,35 @@
-{% extends "base.html" %} {% load static %}{% load blog_tags %} 
-
-
-
-{% block title%}Search{% endblock %}
+{% extends "base.html" %} {% load static %}
 
 
 {% block content%}
-{% if query %}
-<h1>Posts containg"{{query}</h1>
-<h3>{% with results.count as total_results %}
-    Found {{ total_results }} result{{ total_results|pluralize }}
-    {% endwith %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">project_count</th>
+        <th scope="col">Link</th>
+        <th scope="col">Link</th>
+        <th scope="col">Language</th>
+      </tr>
+    </thead>
+    {% for post in droplets %} 
 
-</h3> 
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
 
-   {% for post in results %}
-   <!-- <h4><a href="#">{{post.title}}</a></h4> -->
-  <!-- {{post.body|markdown|truncatewords_html:5}} -->
-{% empty %}
-<p> there are no results for your query.</p>
-{% endfor%}
+            
+             <td>{{post.name}}</td>
+             <td>{{post.forks}}</td>
+             <td>{{post.homepage}}</td>
+            
+             <td> {{post.repository_url}}</td>
+             <td> {{post.platform}}</td>
+            
+            </tr>
+        </tbody>
+        {% endfor%}
 
-<p><a href="{% url "#" %}">Search agian</a></p>
-{% else%}
-
-<!-- <h1> Search for post</h1>
-<form method="get">
-    {{form.as_p}}
-
-    <input type="submit" value="Search">
-</form> -->
-
-
-{{form.data}}
-
-{% endif %}
+      </table>
 {% endblock content%}
