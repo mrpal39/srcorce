@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+ {% load static %} 
+ {% block content%}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">project_count</th>
+        <th scope="col">Link</th>
+        <th scope="col">Link</th>
+        <th scope="col">Language</th>
+      </tr>
+    </thead>
+    {% for post in droplets %} 
+
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+
+            
+             <td>{{post.name}}</td>
+             <td>{{post.project_count}}</td>
+             <td>{{post.homepage}}</td>
+            
+             <td> {{post.color}}</td>
+             <td> {{post.default_language}}</td>
+            
+            </tr>
+        </tbody>
+        {% endfor%}
+
+      </table>
+  
+
+<h2>HELLL</h2>
+
+{% endblock content%}

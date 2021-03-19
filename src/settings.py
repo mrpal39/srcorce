@@ -31,19 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'corsheaders',
     #third party
-    'blog',
+    # 'blog',
     'core',
     'api',
-    'seriallizer',
-
+    # 'seriallizer',
+    # 'users',
     'rest_framework',
 
 
@@ -55,6 +56,8 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,23 +142,26 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
 
-# STATICFILES_DIRS = [
-#     (BASE_DIR, "static"),
-# ]
+STATIC_URL = '/static/'
 
-# STATIC_ROOT = (BASE_DIR), "static_cdn", "static_root")
+MEDIA_ROOT = (BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = (BASE_DIR), "static_cdn", "media_root")
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-# PROTECTED_ROOT = (BASE_DIR), "static_cdn", "protected_media")
 
-
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)

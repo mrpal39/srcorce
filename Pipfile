@@ -11,6 +11,9 @@ markdown = "*"
 django-filter = "*"
 pyyaml = "*"
 django-guardian = "*"
+django-crispy-forms = "*"
+sentry-sdk = "*"
+httpie = "*"
 
 [dev-packages]
 
