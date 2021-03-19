@@ -34,27 +34,51 @@ class GetDroplets(TemplateView):
 
 
 
-# class Getsearch(request):
+class Get_search(TemplateView):
 
-#     template_name = 'upload.html'
-
-def getsearch(request, *args, **kwargs):  
-        # if request.method == 'GET':
-    params='/search'
-    data=get_droplets(params)
-    array_length = len(data)
-    droplet_list = []
-    for i in range(array_length):
-        droplet_list.append(data[i])
+    template_name = 'search.html'
     
-            
+    def get_context_data(request, *args, **kwargs):  
+            # if request.method == 'GET':
+        params='/search'
+        data=get_droplets(params)
+        array_length = len(data)
+        droplet_list = []
+        for i in range(array_length):
+            droplet_list.append(data[i])
+
+        context = {
+            'drop' : droplet_list,
+        }    
+        
+        return context      
+        
+        # return render(request,"search.html")
     
-    return render(request,"search.html",context = {
-        'droplets' : droplet_list,
-    })
+    
+class github(TemplateView):
+
+    template_name = 'git.html'
+    
+    def get_context_data(request, *args, **kwargs):  
+            # if request.method == 'GET':
+        params='/github/python?'
+        data=get_droplets(params)
+        array_length = len(data)
+        droplet_list = []
+        
+        for i in range(array_length):
+            droplet_list.append(data[i])
+
+        context = {
+            'droplets' : droplet_list,
+        }    
+        
+                
+        return context
 
 
-# from .apis import datamine
+    # from .apis import datamine
 
 
 

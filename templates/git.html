@@ -13,7 +13,7 @@
         <th scope="col">Language</th>
       </tr>
     </thead>
-    {% for post in drop%} 
+    {% for post in droplets %} 
 
     <tbody>
         <tr>
@@ -21,11 +21,11 @@
 
             
              <td>{{post.name}}</td>
-             <td>{{post.forks}}</td>
-             <td>{{post.homepage}}</td>
+             <td>{{post.blog}}</td>
+             <!-- <td>{{post.bio}}</td> -->
             
-             <td> {{post.repository_url}}</td>
-             <td> {{post.platform}}</td>
+             <td> {{post.email}}</td>
+             <td> {{post.user_type}}</td>
             
             </tr>
         </tbody>
