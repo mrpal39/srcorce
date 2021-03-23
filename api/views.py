@@ -12,7 +12,6 @@ from .apis import get_droplets
 class GetDroplets(TemplateView):
 
     template_name = 'platform.html'
-
     def get_context_data(request, *args, **kwargs):  
             # if request.method == 'GET':
         params='/platforms'
@@ -29,9 +28,6 @@ class GetDroplets(TemplateView):
             
     
         return context
-
-
-
 
 
 class Get_search(TemplateView):
